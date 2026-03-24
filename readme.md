@@ -2,7 +2,7 @@ kiosk-tv
 
 Currently only tested on Chuwi Herobox with Commodore OS 3.0
 
-See also [Project Notes](projectnotes.md)
+See also [Project Notes](project_notes.md)
 
 chromium \
   --kiosk \
