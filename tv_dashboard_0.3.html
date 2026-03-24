@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TV Dashboard</title>
+<style>
+body {
+  background: #111;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+h1 {
+  color:white;
+  text-align:center;
+  font-size:4.5rem;
+  margin-top:40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  grid-gap: 40px;
+  margin-top: 60px;
+}
+.tile {
+  background: #222;
+  width: 360px;
+  height: 200px;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tile:hover, .tile:focus {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #fff;
+}
+.tile img {
+  max-width: 120px;
+  margin-bottom: 15px;
+}
+.tile span {
+  color: white;
+  font-size: 2rem;
+}
+</style>
+</head>
+<body>
+
+<h1>FVDV TV</h1>
+<div class="grid">
+  <div class="tile" onclick="window.open('https://www.nlziet.nl','_blank','width=1920,height=1080')">
+    <img src="https://images.seeklogo.com/logo-png/44/1/nlziet-logo-png_seeklogo-442808.png" alt="NLZIET">
+    <span>NLZIET</span>
+  </div>
+  <div class="tile" onclick="window.open('https://www.primevideo.com','_blank','width=1920,height=1080')">
+    <img src="https://images.seeklogo.com/logo-png/37/1/amazon-prime-video-logo-png_seeklogo-370524.png" alt="Amazon Prime">
+    <span>Amazon Prime</span>
+  </div>
+  <div class="tile" onclick="window.open('https://www.youtube.com/tv','_blank','width=1920,height=1080')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+    <span>YouTube</span>
+  </div>
+  <div class="tile" onclick="alert('More apps will be added later 🙂')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png" alt="More">
+    <span>More Apps</span>
+  </div>
+</div>
+
+</body>
+</html>

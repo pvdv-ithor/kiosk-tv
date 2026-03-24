@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>System</title>
+
+<style>
+body {
+  background:#111;
+  color:white;
+  font-family:sans-serif;
+  text-align:center;
+}
+
+.container {
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-top:100px;
+}
+
+.tile {
+  width:260px;
+  height:160px;
+  background:#333;
+  border-radius:16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.tile:hover {
+  background:#555;
+}
+
+.danger { background:#a00; }
+</style>
+</head>
+
+<body>
+
+<h1>System</h1>
+
+<div class="container">
+  <div class="tile" onclick="location.href='http://localhost:8080/reset'">
+    <span>Reset TV</span>
+  </div>
+
+  <div class="tile" onclick="location.href='http://localhost:8080/reboot'">
+    <span>Reboot system</span>
+  </div>
+
+  <div class="tile" onclick="location.href='http://localhost:8080/suspend'">
+    <span>Suspend system</span>
+  </div>
+
+  <div class="tile" onclick="location.href='http://localhost:8080/shutdown'">
+    <span>Shutdown system</span>
+  </div>
+
+  <div class="tile" onclick="openKiosk('http://localhost:8080/desktop')">
+    <img src="icons/exit.gif">
+    <span>Exit to desktop</span>
+  </div>
+
+  <div class="tile danger" onclick="location.href='http://localhost:8080/exit'">
+    <img src="icons/commodore-logo.png">
+    <span>Exit to desktop</span>
+  </div>
+
+  <div class="tile" onclick="history.back()">
+    Back
+  </div>
+</div>
+
+</body>
+</html>

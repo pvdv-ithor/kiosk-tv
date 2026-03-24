@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>News</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<body>
+
+<h1>News</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://abcnews.go.com/live/video/special-live-11/')">
+    <img src="icons/abc-broadcast-logo.png">
+    <span>ABC News</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://www.cbsnews.com/live/')">
+    <img src="icons/Telearuba.png">
+    <span>CBS News</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://w3.mp.lura.live/player/prod/v3/anvload.html?key=eyJtIjoiRVBGT1giLCJ2IjoiYWRzdHczZzBQajI4UDJBVyIsInRva2VuIjoiZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SjJhV1FpT2lKaFpITjBkek5uTUZCcU1qaFFNa0ZYSWl3aWFYTnpJam9pTjJJMFYwcHNNelY2WVVoU2QxZDZhR3RWWlhkWFdrcHBSRE5LVDIxQmFrY2lmUS5LX2dSNHFPSE1OcUhCRUNMTkU2eHdLZEw5aGF4eFJ2NzA2NENJUFlPYTc4IiwiYW52YWNrIjoiN2I0V0psMzV6YUhSd1d6aGtVZXdXWkppRDNKT21BakcifQ%3D%3D')">
+    <img src="icons/fox-seeklogo.png">
+    <span>Fox News</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="openKiosk('https://www.nbcnews.com/watch')">
+    <img src="icons/Telearuba.png">
+    <span>NBC News</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="openKiosk('https://www.euronews.com/live')">
+    <img src="icons/euronews.svg">
+    <span>Euro News</span>
+  </div>
+
+  <div class="tile" tabindex="5" onclick="openKiosk('https://www.aljazeera.com/live')">
+    <img src="icons/Telearuba.png">
+    <span>Al Jazeera</span>
+  </div>
+
+  <div class="tile" tabindex="6" onclick="openKiosk('https://edition.cnn.com/videos/fast/cnni-fast')">
+    <img src="icons/Telearuba.png">
+    <span>CNN</span>
+  </div>
+
+  <div class="tile" tabindex="7" onclick="openKiosk('https://www.bbc.co.uk/news')">
+    <img src="icons/bbc-news-logo.png">
+    <span>BBC News</span>
+  </div>
+
+  <div class="tile" tabindex="7" onclick="openKiosk('https://news.sky.com/watch-live')">
+    <img src="icons/sky-news-logo.svg">
+    <span>SKY News</span>
+  </div>
+
+  <div class="tile" tabindex="8" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

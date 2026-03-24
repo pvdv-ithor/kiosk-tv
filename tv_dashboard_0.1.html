@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TV Dashboard</title>
+<style>
+body {
+  background: #111;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 260px);
+  grid-gap: 40px;
+}
+.tile {
+  background: #222;
+  width: 260px;
+  height: 150px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  color: white;
+  font-size: 1.8rem;
+  user-select: none;
+}
+.tile:hover, .tile:focus {
+  background: #444;
+  transform: scale(1.1);
+  outline: none;
+}
+.tile img {
+  max-height: 60px;
+  max-width: 180px;
+}
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="tile" onclick="location.href='https://www.nlziet.nl'"><img src="https://www.nlziet.nl/assets/img/logo.svg" alt="NLZIET"></div>
+  <div class="tile" onclick="location.href='https://www.youtube.com/tv'"><img src="https://www.youtube.com/s/desktop/e6f3fd57/img/favicon_144x144.png" alt="YouTube"></div>
+  <div class="tile" onclick="alert('Add more apps later 🙂')">More Apps</div>
+</div>
+</body>
+</html>

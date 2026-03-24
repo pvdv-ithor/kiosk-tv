@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TV Dashboard</title>
+<style>
+body {
+  background: #111;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+h1 {
+  color: #00ff00;
+  text-align:center;
+  font-size:4.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  margin-top:40px;
+  background-color: #000;
+  padding: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 360px);
+  grid-gap: 40px;
+  margin-top: 60px;
+}
+.tile {
+  background: #222;
+  width: 360px;
+  height: 200px;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tile:hover, .tile:focus {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #fff;
+}
+.tile:hover:not(:focus) {
+  transform: scale(1.05);
+}
+.tile img {
+  max-width: 120px;
+  margin-bottom: 15px;
+}
+.tile span {
+  color: #00ff00;
+  font-size: 2rem;
+}
+.danger { 
+  background: #a00;
+}
+.title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.title img {
+  width: auto;
+  max-width: 60vw;  
+  max-height: 18vh;
+  height: auto;
+}
+</style>
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script>
+function playBeep() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = 'triangle';      // retro feel
+  osc.frequency.value = 1000; // pitch (Hz)
+
+  gain.gain.value = 0.05;   // volume (very important!)
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+
+  osc.start();
+  osc.stop(ctx.currentTime + 0.05); // 50 ms beep
+}
+
+function playClick() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = 'square';      // retro feel
+  osc.frequency.value = 800; // pitch (Hz)
+
+  gain.gain.value = 0.02;   // volume (very important!)
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+
+  osc.start();
+  osc.stop(ctx.currentTime + 0.15); // 150 ms beep
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tiles = Array.from(document.querySelectorAll('.tile'));
+  let index = 0;
+
+  if (tiles.length === 0) return;
+
+  tiles[index].focus();
+  playBeep();
+
+  document.addEventListener('keydown', (e) => {
+    const cols = 4; 
+
+    switch (e.key) {
+      case 'ArrowRight':
+        index = (index + 1) % tiles.length;
+        playBeep();
+        break;
+      case 'ArrowLeft':
+        index = (index - 1 + tiles.length) % tiles.length;
+        playBeep();
+        break;
+      case 'ArrowDown':
+        index = Math.min(index + cols, tiles.length - 1);
+        playBeep();
+        break;
+      case 'ArrowUp':
+        index = Math.max(index - cols, 0);
+        playBeep();
+        break;
+      case 'Enter':
+        tiles[index].click();
+        playClick();
+        return;
+      default:
+        return;
+    }
+
+    tiles[index].focus();
+    e.preventDefault();
+  });
+});
+let lastGamepadState = {};
+
+function pollGamepad() {
+  const gamepads = navigator.getGamepads();
+  const gp = gamepads[0];
+
+  if (!gp) {
+    requestAnimationFrame(pollGamepad);
+    return;
+  }
+
+  // D-pad mapping (standard XInput)
+  const buttons = gp.buttons;
+
+  const pressed = {
+    up: buttons[12]?.pressed,
+    down: buttons[13]?.pressed,
+    left: buttons[14]?.pressed,
+    right: buttons[15]?.pressed,
+    enter: buttons[0]?.pressed  // A button
+  };
+
+  for (const key in pressed) {
+    if (pressed[key] && !lastGamepadState[key]) {
+      simulateKey(key);
+    }
+    lastGamepadState[key] = pressed[key];
+  }
+
+  requestAnimationFrame(pollGamepad);
+}
+
+function simulateKey(action) {
+  let key;
+
+  switch (action) {
+    case 'up': key = 'ArrowUp'; break;
+    case 'down': key = 'ArrowDown'; break;
+    case 'left': key = 'ArrowLeft'; break;
+    case 'right': key = 'ArrowRight'; break;
+    case 'enter': key = 'Enter'; break;
+    default: return;
+  }
+
+  document.dispatchEvent(
+    new KeyboardEvent('keydown', { key })
+  );
+}
+
+// Start polling after first user interaction
+window.addEventListener('gamepadconnected', () => {
+  pollGamepad();
+});
+</script>
+
+<body>
+
+<!-- <h1>FVDV TV</h1> -->
+<div class="title">
+  <img src="images/fvdv_tv5.png" alt="FVDV TV">
+</div>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://www.nlziet.nl')">
+    <img src="https://images.seeklogo.com/logo-png/44/1/nlziet-logo-png_seeklogo-442808.png" alt="NLZIET">
+    <span>NLZIET</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://www.play.tv/')">
+    <img src="icons/goplay.svg" alt="PLAY">
+    <span>PLAY</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://www.joyn.de/')">
+    <img src="icons/joyn.jpg" alt="Joyn">
+    <span>Joyn</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="openKiosk('file:///home/Commodore/My_TV/telearuba.html')">
+    <img src="icons/telearuba.png" alt="Telearuba">
+    <span>Telearuba</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="openKiosk('https://www.youtube.com/tv')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+    <span>YouTube</span>
+  </div>
+
+  <div class="tile" tabindex="5" onclick="openKiosk('file:///home/Commodore/My_TV/conspiricy.html')">
+    <img src="icons/illuminati.png" alt="Consipiricy TV">
+    <span>Conspiricy TV</span>
+  </div>
+
+  <div class="tile" tabindex="6" onclick="openKiosk('file:///home/Commodore/My_TV/kids.html')">
+    <img src="icons/labubu-chill-logo.png" alt="Kids TV">
+    <span>Kids TV</span>
+  </div>
+
+  <div class="tile" tabindex="7" onclick="openKiosk('file:///home/Commodore/My_TV/ondemand.html')">
+    <img src="icons/videotape.png" alt="On demand TV">
+    <span>On demand TV</span>
+  </div>
+
+  <div class="tile" tabindex="8" onclick="openKiosk('file:///home/Commodore/My_TV/news.html')">
+    <img src="icons/newspaper2.png" alt="News">
+    <span>News</span>
+  </div>
+
+  <div class="tile" tabindex="9" onclick="openKiosk('file:///home/Commodore/My_TV/sports.html')">
+    <img src="icons/football.png">
+    <span>Sports TV</span>
+  </div>
+
+  <div class="tile" tabindex="10" onclick="openKiosk('file:///home/Commodore/My_TV/other_tv.html')">
+    <img src="icons/remote-control.png">
+    <span>Other TV</span>
+  </div>
+
+  <div class="tile" tabindex="11" onclick="openKiosk('file:///home/Commodore/My_TV/tv_dashboard2.html')">
+    <img src="icons/arrow-right-green.png" alt="More">
+    <span>Next</span>
+  </div>
+</div>
+
+</body>
+</html>

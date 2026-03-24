@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>International TV</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<script src="vpn-status.js"></script>
+
+<body>
+
+<h1>International TV</h1>
+
+<div id="vpnStatus">
+  VPN: checking…
+</div>
+
+<div class="grid">
+
+  <div class="tile" tabindex="0" onclick="openKiosk('https://www.vtmgo.be/vtmgo')">
+    <img src="icons/vtmgo.svg" alt="VTMGO">
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://www.channel4.com')">
+    <img src="icons/channel4.svg">
+    <span>Channel 4</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://www.joyn.de/')">
+    <img src="icons/joyn.jpg" alt="Joyn">
+    <span>Joyn</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="openKiosk('https://on.orf.at/livestreams')">
+    <img src="icons/orfon.jpg" alt="OrfON">
+    <span>OrfON</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="openKiosk('https://europe.tv5monde.com/en')">
+    <img src="icons/tv5monde.png" alt="TV5Monde Europe">
+    <span>TV5Monde Europe</span>
+  </div>
+
+  <div class="tile" tabindex="5" onclick="openKiosk('https://tv.garden/')">
+    <img src="icons/Telearuba.png">
+    <span>TV Garden</span>
+  </div>
+
+  <div class="tile" tabindex="6" onclick="openKiosk('https://cdn.live.easybroadcast.io/abr_corp/73_arryadia_k2tgcj0/playlist_dvr.m3u8?token=_hm5HCMZ7n11fDyWuUJE1h8c8ogZ5m_PTEdWRLW8YvQ&token_path=%2Fabr_corp%2F73_arryadia_k2tgcj0&expires=1769008560&token=_hm5HCMZ7n11fDyWuUJE1h8c8ogZ5m_PTEdWRLW8YvQ&token_path=%2Fabr_corp%2F73_arryadia_k2tgcj0&expires=1769008560')">
+    <img src="icons/Telearuba.png">
+    <span>Arryadia 3</span>
+  </div>
+
+  <div class="tile" tabindex="7" onclick="openKiosk('https://pbc.furrera.ps/palestinehd/index.m3u8?v=2a026ea0c04166490000000000000031')">
+    <img src="icons/Telearuba.png">
+    <span>Palestine Channel</span>
+  </div>
+
+  <div class="tile" tabindex="8" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

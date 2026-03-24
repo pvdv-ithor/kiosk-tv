@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>VPN</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<script src="vpn-status.js"></script>
+
+<body>
+
+<h1>VPN</h1>
+
+<div id="vpnStatus" class="vpn">
+  VPN: checking…
+</div>
+
+<div class="grid">
+
+  <div class="tile" tabindex="0" onclick="connectVPN('BE')">
+    <span>VPN BE</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="connectVPN('DE')">
+    <span>VPN DE</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="connectVPN('FR')">
+    <span>VPN FR</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="connectVPN('NL')">
+    <span>VPN NL</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="connectVPN('NO')">
+    <span>VPN NO</span>
+  </div>
+
+  <div class="tile" tabindex="5" onclick="connectVPN('RU')">
+    <span>VPN RU</span>
+  </div>
+
+  <div class="tile" tabindex="6" onclick="connectVPN('UK')">
+    <span>VPN UK</span>
+  </div>
+
+  <div class="tile" tabindex="7" onclick="connectVPN('US')">
+    <span>VPN US</span>
+  </div>
+
+  <div class="tile" tabindex="8" onclick="connectVPN('ZA')">
+    <span>VPN ZA</span>
+  </div>
+
+  <div class="tile" tabindex="9" onclick="refreshVPN()">
+    <span>VPN Status</span>
+  </div>
+
+  <div class="tile danger" tabindex="10" onclick="connectVPN('off')">
+    <span>VPN OFF</span>
+  </div>
+
+  <div class="tile" tabindex="11" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+
+</div>
+
+</body>
+</html>

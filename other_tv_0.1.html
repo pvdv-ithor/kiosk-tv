@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Other TV Channels</title>
+
+<style>
+body {
+  background: #111;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+h1 {
+  color: #00ff00;
+  text-align:center;
+  font-size:4.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  margin-top:40px;
+  background-color: #000;
+  padding: 10px;
+}
+
+.container {
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-top:100px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 360px);
+  grid-gap: 40px;
+  margin-top: 60px;
+}
+
+.tile {
+  background: #222;
+  width: 360px;
+  height: 200px;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tile:hover, .tile:focus {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #fff;
+}
+
+.tile img {
+  max-width: 120px;
+  margin-bottom: 15px;
+}
+
+.tile span {
+  color: #00ff00;
+  font-size: 2rem;
+}
+
+.danger {
+  background: #a00;
+}
+
+.title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.title img {
+  width: auto;
+  max-width: 60vw;
+  max-height: 18vh;
+  height: auto;
+}
+
+</style>
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script>
+function playBeep() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = 'triangle';      // retro feel
+  osc.frequency.value = 1000; // pitch (Hz)
+
+  gain.gain.value = 0.05;   // volume (very important!)
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+
+  osc.start();
+  osc.stop(ctx.currentTime + 0.05); // 50 ms beep
+}
+
+function playClick() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = 'square';      // retro feel
+  osc.frequency.value = 800; // pitch (Hz)
+
+  gain.gain.value = 0.02;   // volume (very important!)
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+
+  osc.start();
+  osc.stop(ctx.currentTime + 0.15); // 150 ms beep
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tiles = Array.from(document.querySelectorAll('.tile'));
+  let index = 0;
+
+  if (tiles.length === 0) return;
+
+  tiles[index].focus();
+  playBeep();
+
+  document.addEventListener('keydown', (e) => {
+    const cols = 4; 
+
+    switch (e.key) {
+      case 'ArrowRight':
+        index = (index + 1) % tiles.length;
+        playBeep();
+        break;
+      case 'ArrowLeft':
+        index = (index - 1 + tiles.length) % tiles.length;
+        playBeep();
+        break;
+      case 'ArrowDown':
+        index = Math.min(index + cols, tiles.length - 1);
+        playBeep();
+        break;
+      case 'ArrowUp':
+        index = Math.max(index - cols, 0);
+        playBeep();
+        break;
+      case 'Enter':
+        tiles[index].click();
+        playClick();
+        return;
+      default:
+        return;
+    }
+
+    tiles[index].focus();
+    e.preventDefault();
+  });
+});
+</script>
+
+<body>
+
+<h1>Other TV Channels</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://www.travelchannel.com/')">
+    <img src="icons/trvlch.png">
+    <span>Travel Channel</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://www.plex.tv/')">
+    <img src="icons/plex-logo.svg">
+    <span>Plex TV</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://www.pluto.tv/')">
+    <img src="icons/pluto-tv-seeklogo.png" alt="Pluto">
+    <span>Pluto TV</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="openKiosk('https://www.roku.com/whats-on/the-roku-channel#free')">
+    <img src="icons/roku-seeklogo.png">
+    <span>Roku TV</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="openKiosk('https://www.sling.com/freestream')">
+    <img src="icons/sling.svg">
+    <span>Sling TV</span>
+  </div>
+
+  <div class="tile" tabindex="5" onclick="openKiosk('https://stirr.com/')">
+    <img src="icons/stirr.png">
+    <span>Stirr TV</span>
+  </div>
+
+  <div class="tile" tabindex="6" onclick="openKiosk('https://gdpr.tubi.tv/')">
+    <img src="icons/tubi-seeklogo.png">
+    <span>Tubi TV</span>
+  </div>
+
+  <div class="tile" tabindex="7" onclick="openKiosk('https://flixhouse.com/')">
+    <img src="icons/flixhouse.png" alt="Flixhouse">
+    <span>Flixhouse</span>
+  </div>
+
+  <div class="tile" tabindex="8" onclick="openKiosk('https://flixbaba.is/')">
+    <img src="icons/flixtr.png" alt="FlixBaba">
+    <span>FlixBaba</span>
+  </div>
+
+  <div class="tile" tabindex="8" onclick="openKiosk('https://www.elahmad.com/tv/live-arabic-channels.php')">
+    <img src="icons/flixtr.png" alt="FlixBaba">
+    <span>Elahmad</span>
+  </div>
+
+  <div class="tile" tabindex="9" onclick="history.back()">
+    <img src="icons/arrow-left-green.png" alt="Back">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Music</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<body>
+
+<h1>Music</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://tidal.com/')">
+    <img src="icons/tidal.png">
+    <span>Tidal</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="location.href='http://localhost:8080/radio'">
+    <img src="icons/radio.png">
+    <span>Metal Radio</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

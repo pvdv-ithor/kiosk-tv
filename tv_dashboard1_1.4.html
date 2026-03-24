@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TV Dashboard</title>
+
+<link rel="stylesheet" href="style-main.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<script src="vpn-status.js"></script>
+
+<script src="clock.js"></script>
+
+<body>
+
+<!-- <h1>FVDV TV</h1> -->
+<div class="title">
+  <img src="images/fvdv_tv5.png" alt="FVDV TV">
+</div>
+
+<div id="clock">
+  <div id="clock-time"></div>
+  <div id="clock-date"></div>
+</div>
+
+<div id="vpnStatus">
+  VPN: checking…
+</div>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://www.nlziet.nl')">
+    <img src="https://images.seeklogo.com/logo-png/44/1/nlziet-logo-png_seeklogo-442808.png" alt="NLZIET">
+    <span>NLZIET</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://www.play.tv/')">
+    <img src="icons/goplay.svg" alt="PLAY">
+    <span>PLAY</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('telearuba.html')">
+    <img src="icons/telearuba.png" alt="Telearuba">
+    <span>Telearuba</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="openKiosk('https://www.youtube.com/tv')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+    <span>YouTube</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="openKiosk('international.html')">
+    <img src="icons/international.png" alt="International TV">
+    <span>International TV</span>
+  </div>
+
+  <div class="tile" tabindex="5" onclick="openKiosk('conspiricy.html')">
+    <img src="icons/illuminati.png" alt="Consipiricy TV">
+    <span>Conspiricy TV</span>
+  </div>
+
+  <div class="tile" tabindex="6" onclick="openKiosk('kids.html')">
+    <img src="icons/labubu-chill-logo.png" alt="Kids TV">
+    <span>Kids TV</span>
+  </div>
+
+  <div class="tile" tabindex="7" onclick="openKiosk('ondemand.html')">
+    <img src="icons/videotape.png" alt="On demand TV">
+    <span>On demand TV</span>
+  </div>
+
+  <div class="tile" tabindex="8" onclick="openKiosk('news.html')">
+    <img src="icons/newspaper2.png" alt="News TV">
+    <span>News TV</span>
+  </div>
+
+  <div class="tile" tabindex="9" onclick="openKiosk('sports.html')">
+    <img src="icons/football.png">
+    <span>Sports TV</span>
+  </div>
+
+  <div class="tile" tabindex="10" onclick="openKiosk('other_tv.html')">
+    <img src="icons/remote-control.png">
+    <span>Other TV</span>
+  </div>
+
+  <div class="tile" tabindex="11" onclick="openKiosk('tv_dashboard2.html')">
+    <img src="icons/arrow-right-green.png" alt="More">
+    <span>Next</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+[0;1;32m●[0m kiosk-server.service - Kiosk Control Web Server
+     Loaded: loaded (]8;;file://commodore/home/Commodore/.config/systemd/user/kiosk-server.service/home/Commodore/.config/systemd/user/kiosk-server.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: [0;1;32mactive (running)[0m since Mon 2026-01-19 17:08:00 CET; 15h ago
+   Main PID: 626744 (python3)
+      Tasks: 2 (limit: 9140)
+     Memory: 9.2M
+        CPU: 2.893s
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/kiosk-server.service
+             └─[0;38;5;245m626744 /usr/bin/python3 /home/Commodore/My_TV/kiosk_server.py[0m
+
+Jan 19 17:08:00 commodore systemd[1241]: Started kiosk-server.service - Kiosk Control Web Server.
+Jan 19 17:08:33 commodore python3[626744]: 127.0.0.1 - - [19/Jan/2026 17:08:33] "GET /terminal HTTP/1.1" 204 -
+Jan 19 20:26:33 commodore python3[626744]: 127.0.0.1 - - [19/Jan/2026 20:26:33] "GET /suspend HTTP/1.1" 204 -
+Jan 20 06:56:55 commodore systemctl[684062]: [0;1;31m[0;1;39m[0;1;31mCall to Suspend failed: There's already a shutdown or sleep operation in progress[0m
+Jan 20 06:56:55 commodore python3[626744]: 127.0.0.1 - - [20/Jan/2026 06:56:55] "GET /suspend HTTP/1.1" 204 -
+Jan 20 06:57:10 commodore python3[626744]: 127.0.0.1 - - [20/Jan/2026 06:57:10] "GET /suspend HTTP/1.1" 204 -
+Jan 20 07:06:48 commodore python3[626744]: 127.0.0.1 - - [20/Jan/2026 07:06:48] "GET /suspend HTTP/1.1" 204 -

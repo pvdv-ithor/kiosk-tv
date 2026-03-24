@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Games</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</style>
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<body>
+
+<h1>Games</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="location.href='http://localhost:8080/alien'">
+    <span>Alien Arena</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('http://localhost:8080/desktop')">
+    <img src="icons/exit.gif">
+    <span>Exit to desktop</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

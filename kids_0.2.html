@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Kids</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<body>
+
+<h1>Kids</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://kidoodle.tv/hub/DiscoveryHome?default=true')">
+    <img src="icons/kidoodle.png">
+    <span>Kidoodle</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk(''https://pbskids.org/videos)">
+    <img src="icons/Telearuba.png">
+    <span>PBS Kids</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://happykids.tv/categories/movies-and-tv')">
+    <img src="icons/Telearuba.png">
+    <span>Happy Kids TV</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

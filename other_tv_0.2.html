@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Other TV Channels</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<body>
+
+<h1>Other TV Channels</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://www.travelchannel.com/')">
+    <img src="icons/trvlch.png">
+    <span>Travel Channel</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://www.plex.tv/')">
+    <img src="icons/plex-logo.svg">
+    <span>Plex TV</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://www.pluto.tv/')">
+    <img src="icons/pluto-tv-seeklogo.png" alt="Pluto">
+    <span>Pluto TV</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="openKiosk('https://www.roku.com/whats-on/the-roku-channel#free')">
+    <img src="icons/roku-seeklogo.png">
+    <span>Roku TV</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="openKiosk('https://www.sling.com/freestream')">
+    <img src="icons/sling.svg">
+    <span>Sling TV</span>
+  </div>
+
+  <div class="tile" tabindex="5" onclick="openKiosk('https://stirr.com/')">
+    <img src="icons/stirr.png">
+    <span>Stirr TV</span>
+  </div>
+
+  <div class="tile" tabindex="6" onclick="openKiosk('https://gdpr.tubi.tv/')">
+    <img src="icons/tubi-seeklogo.png">
+    <span>Tubi TV</span>
+  </div>
+
+  <div class="tile" tabindex="7" onclick="openKiosk('https://flixhouse.com/')">
+    <img src="icons/flixhouse.png" alt="Flixhouse">
+    <span>Flixhouse</span>
+  </div>
+
+  <div class="tile danger" tabindex="8" onclick="openKiosk('https://flixbaba.is/')">
+    <img src="icons/flixtr.png" alt="FlixBaba">
+    <span>FlixBaba</span>
+  </div>
+
+  <div class="tile" tabindex="9" onclick="openKiosk('https://www.elahmad.com/tv/live-arabic-channels.php')">
+    <img src="icons/flixtr.png" alt="FlixBaba">
+    <span>Elahmad</span>
+  </div>
+
+  <div class="tile" tabindex="10" onclick="history.back()">
+    <img src="icons/arrow-left-green.png" alt="Back">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

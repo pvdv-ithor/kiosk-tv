@@ -1,0 +1,32 @@
+#Written by mate-terminal 1.26.0
+
+[MATE Terminal Configuration]
+Version=1
+CompatVersion=1
+Windows=Window0;Window1;
+
+[global]
+use_custom_default_font=true
+font=Monospace Bold 20
+scrollbar_policy=never
+#default_size_columns=100
+#default_size_rows=30
+#use_system_font=false
+#show_menubar=false
+#audible_bell=false
+cursor_blink_mode=off
+#window-state=maximized
+
+[Window0]
+MenubarVisible=false
+Role=mate-terminal-window-17127-212392390-1768838914
+ActiveTerminal=Terminal0x64aeb7551350
+Geometry=100x43+113+126
+Terminals=Terminal0x64aeb7551350;
+
+[Terminal0x64aeb7551350]
+ProfileID=default
+WorkingDirectory=/home/Commodore
+Zoom=2
+Width=100
+Height=43

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FVDV TV</title>
+
+<link rel="stylesheet" href="style-main.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<script src="vpn-status.js"></script>
+
+<script src="security.js"></script>
+
+<script src="clock.js"></script>
+
+<body>
+
+<h1>FVDV TV</h1>
+
+<div id="clock">
+  <div id="clock-time"></div>
+  <div id="clock-date"></div>
+</div>
+
+<div id="vpnStatus">
+  VPN: checking…
+</div>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('http://homeassistant.local:8123')">
+    <img src="https://images.seeklogo.com/logo-png/50/1/new-home-assistant-logo-png_seeklogo-507274.png" alt="Home Assistant">
+    <span>Home Assistant</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('http://localhost:8080/kodi')">
+    <img src="https://images.seeklogo.com/logo-png/27/1/kodi-logo-png_seeklogo-275726.png" alt="Kodi">
+    <span>Kodi</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('music.html')">
+    <img src="icons/vinyl-record.png">
+    <span>Music</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="openKiosk('games.html')">
+    <img src="icons/joystick.png">
+    <span>Games</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="openSystemProtected()">
+    <img src="icons/commodore_system.png">
+    <span>System</span>
+  </div>
+
+  <div class="tile" tabindex="5" onclick="alert('More apps will be added later 🙂')">
+    <img src="icons/application.png" alt="More">
+    <span>More Apps</span>
+  </div>
+
+  <div class="tile" tabindex="6" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+<div id="pinOverlay" style="display:none;">
+  <div id="pinBox">
+    <h2>Enter PIN</h2>
+    <input type="password" id="pinInput" autofocus />
+    <div class="pin-buttons">
+      <button onclick="submitPin()">OK</button>
+      <button onclick="closePin()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

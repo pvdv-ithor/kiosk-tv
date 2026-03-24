@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>System</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<script src="vpn-status.js"></script>
+
+<body>
+
+<h1>System</h1>
+
+<div id="vpnStatus">
+  VPN: checking…
+</div>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="location.href='http://localhost:8080/reset'">
+    <img src="icons/reset.png">
+    <span>Reset TV</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('http://localhost:8080/desktop')">
+    <img src="icons/exit.gif">
+    <span>Exit to desktop</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="location.href='http://localhost:8080/exit'">
+    <img src="icons/commodore-logo.png">
+    <span>Exit to desktop</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="location.href='http://localhost:8080/suspend'">
+    <img src="icons/pause.png">
+    <span>Suspend system</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="openKiosk('vpn.html')">
+    <img src="icons/vpn.png">
+    <span>VPN</span>
+  </div>
+
+  <div class="tile" tabindex="5" onclick="location.href='http://localhost:8080/terminal'">
+    <img src="icons/terminal.png">
+    <span>Terminal</span>
+  </div>
+
+  <div class="tile danger" tabindex="6" onclick="location.href='http://localhost:8080/reboot'">
+    <span>Reboot system</span>
+  </div>
+
+  <div class="tile danger" tabindex="7" onclick="location.href='http://localhost:8080/shutdown'">
+    <span>Shutdown system</span>
+  </div>
+
+  <div class="tile" tabindex="8" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

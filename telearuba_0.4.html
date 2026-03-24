@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Telearuba</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<body>
+
+<h1>Telearuba</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://cdn01.setar.aw/Telearuba/telearuba/playlist.m3u8')">
+    <img src="icons/Telearuba.png">
+    <span>Telearuba CH13</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://cdn01.setar.aw/Canal23/canal23/playlist.m3u8')">
+    <img src="icons/Telearuba.png">
+    <span>Nos isla TV CH23</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://cdn01.setar.aw/Canal49/canal49/playlist.m3u8')">
+    <img src="icons/Telearuba.png">
+    <span>Aruba TV CH49</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

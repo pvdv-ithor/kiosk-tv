@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>On demand TV</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<body>
+
+<h1>On demand TV</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://www.primevideo.com')">
+    <img src="https://images.seeklogo.com/logo-png/37/1/amazon-prime-video-logo-png_seeklogo-370524.png" alt="Amazon Prime">
+    <span>Amazon Prime</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://www.disneyplus.com/identity/login')">
+    <img src="icons/disney-seeklogo.png" alt="Disney+">
+    <span>Disney+</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://www.netflix.com/nl-en/login')">
+    <img src="icons/netflix-seeklogo.png" alt="Netflix">
+    <span>Netflix</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="openKiosk('https://tv.apple.com/library/movies')">
+    <img src="icons/apple3.png" alt="Apple Movies">
+    <span>Apple Movies</span>
+  </div>
+
+  <div class="tile" tabindex="4" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

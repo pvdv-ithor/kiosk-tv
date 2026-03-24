@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sports</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<body>
+
+<h1>Sports</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://www.plus.fifa.com/en/live-schedule/competitions')">
+    <img src="icons/Telearuba.png">
+    <span>Fifa +</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://eurovisionsport.com/en/home')">
+    <img src="icons/eurovision-sport.png">
+    <span>Eurovision Sport</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://www.beinsports.com/en-us')">
+    <img src="icons/eurovision-sport.png">
+    <span>Bein Sports</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://www.sabcsport.com/tv/live')">
+    <img src="icons/sabc_main_logo.webp">
+    <span>SABC Sport</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>

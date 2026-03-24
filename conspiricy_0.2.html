@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Conspiricy TV</title>
+
+<link rel="stylesheet" href="style-sub.css">
+
+</head>
+
+<script>
+function openKiosk(url) {
+  window.location.href = url;
+}
+</script>
+
+<script src="controller.js" defer></script>
+
+<body>
+
+<h1>Conspiricy TV</h1>
+
+<div class="grid">
+  <div class="tile" tabindex="0" onclick="openKiosk('https://jensen.nl/articles/de-jensen-show-live/page/1/')">
+    <img src="icons/jensen.png">
+    <span>Jensen Show</span>
+  </div>
+
+  <div class="tile" tabindex="1" onclick="openKiosk('https://www.bitchute.com/')">
+    <img src="icons/bitchute-logo-png_seeklogo.png" alt="Bitchute">
+    <span>Bitchute</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://rumble.com/')">
+    <img src="icons/rumble-logo-png_seeklogo.png" alt="Rumble">
+    <span>Rumble</span>
+  </div>
+
+  <div class="tile" tabindex="2" onclick="openKiosk('https://www.rebelnews.com/live')">
+    <img src="icons/Rebel_News_Logo.png" alt="Rebel News">
+    <span>Rebel News</span>
+  </div>
+
+  <div class="tile" tabindex="3" onclick="history.back()">
+    <img src="icons/arrow-left-green.png">
+    <span>Back</span>
+  </div>
+</div>
+
+</body>
+</html>
