@@ -1,4 +1,4 @@
-kiosk-tv
+# kiosk-tv
 
 Currently only tested on Chuwi Herobox with Commodore OS 3.0
 
