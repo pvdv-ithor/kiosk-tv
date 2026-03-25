@@ -3,7 +3,7 @@ Description=Kiosk Control Web Server
 After=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/Commodore/My_TV/kiosk_server.py
+ExecStart=/usr/bin/python3 %h/My_TV/kiosk_server.py
 Restart=always
 
 [Install]
